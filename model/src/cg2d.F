@@ -204,6 +204,11 @@ C--   Initial residual calculation
         printResidual = printResidualFreq.GE.1
         WRITE(standardmessageunit,'(A,1P2E22.14)')
      &  ' cg2d: Sum(rhs),rhsMax = ', sumRHS,rhsMax
+C     >>> Prevent zumby run >>> Tianze 08/23/2020        
+        IF ( rhsMax .GE. 100000000. _d 0 ) THEN
+            CALL WRITE_STATE(endTime, 999999, myThid)
+            STOP 'CMM => ABNORMAL END: THE MODEL IS BLOWING UP!'
+        ENDIF
         _END_MASTER( myThid )
       ENDIF
 
