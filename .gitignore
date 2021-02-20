@@ -116,3 +116,4 @@ core
 /verification/*/tr_run.*
 
 /build_cases/*/build*
+/build_cases/*/code
