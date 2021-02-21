@@ -79,7 +79,8 @@ C     bi,bj  :: tile counters
       _RL sig2   (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL sig12  (1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL sigp, sigm, sigTmp, recip_prs
-      _RL areaW, areaS, COSWAT, SINWAT
+      _RL areaW, areaS, COSWAT
+      _RS SINWAT
       INTEGER kSrf
       LOGICAL diag_SIsigma_isOn, diag_SIshear_isOn
       LOGICAL diag_SIenpi_isOn, diag_SIenpot_isOn
@@ -387,10 +388,7 @@ CADJ STORE stressDivergenceX  = comlev1,
 CADJ &     key=ikey_dynamics, kind=isbyte
 CADJ STORE stressDivergenceY  = comlev1,
 CADJ &     key=ikey_dynamics, kind=isbyte
-CADJ STORE DWATN  = comlev1, key=ikey_dynamics, kind=isbyte
-#ifdef SEAICE_ALLOW_BOTTOMDRAG
-CADJ STORE CbotC  = comlev1, key=ikey_dynamics, kind=isbyte
-#endif /* SEAICE_ALLOW_BOTTOMDRAG */
+CADJ STORE DWATN = comlev1, key=ikey_dynamics, kind=isbyte
 #endif /* ALLOW_AUTODIFF_TAMC */
 
 C Update ocean surface stress
