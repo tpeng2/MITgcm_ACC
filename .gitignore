@@ -117,3 +117,4 @@ core
 
 /build_cases/*/build*
 /build_cases/*/code
+/build_cases/*/code/*
